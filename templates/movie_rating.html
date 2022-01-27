@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<a href="/movie">На главную!</a>
+<h3>Выбор возрастной категории</h3>
+<form action="/movie/rating" method="GET">
+    <label><input type="checkbox" name="Kids">Дети <em>(TV-Y, TV-Y7, TV-Y7-FV, G, TV-G, PG, TV-PG)</em></label><br>
+    <label><input type="checkbox" name="Teens">Подростки <em>(PG-13, TV-14)</em></label><br>
+    <label><input type="checkbox" name="Adults">Взрослые <em>(R, TV-MA, NC-17)</em></label><br>
+    <label><input type="checkbox" name="Not rated">Нет категории <em>(NR, UR)</em></label>
+    <p><input type="submit" value="Submit"></p>
+</form>
+    {% for res in result %}
+        <p><strong>Title:</strong> {{res.title}}<br>
+        <strong>Rating:</strong> {{res.rating}}<br>
+        <strong>Description:</strong> {{res.description}}</p>
+    {% endfor %}
+</body>
+</html>

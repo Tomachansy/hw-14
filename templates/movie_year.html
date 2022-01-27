@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<a href="/movie">На главную!</a>
+<h3>Найти фильм</h3>
+<form action="/movie/year" method="GET">
+    <p><label for="from">начиная с</label><br>
+    <input type="number" id="from" name="from" placeholder="1942" maxlength="4" min="1942"></p>
+    <p><label for="to">заканчивая</label><br>
+    <input type="number" id="to" name="to" maxlength="4" min="1942"></p>
+    <p><input type="submit" value="Найти"></p>
+</form>
+    {% if result %}
+        <p>Release year - Title</p>
+        {% for res in result %}
+            <p><strong>{{res.release_year}}</strong> - {{res.title}}</p>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<a href="/movie">На главную!</a>
+<h3>Найти по жанру</h3>
+<form action="/movie/genre" method="GET">
+    <input type="text" name="genre">
+    <p><input type="submit" value="Найти"></p>
+</form>
+    {% if result %}
+        {% for res in result %}
+            <p><strong>Title:</strong> {{res.title}}<br>
+            <strong>Genre:</strong> {{res.listed_in}}<br>
+            <strong>Description:</strong> {{res.description}}</p>
+        {% endfor %}
+    {% else %}
+            <h3>{{ search }}</h3>
+    {% endif %}
+</body>
+</html>

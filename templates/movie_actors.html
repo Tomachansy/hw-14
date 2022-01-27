@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<a href="/movie">На главную!</a>
+<h3>Найти актёров, снимавшихся в тех же картинах больше 2-х раз</h3>
+<form action="/movie/actors" method="GET">
+    <p><label for="actor_1">1-й актёр</label>
+    <input type="text" id="actor_1" name="actor_1" placeholder="'Jack Black'"></p>
+    <p><label for="actor_2">2-й актёр</label>
+    <input type="text" id="actor_2" name="actor_2" placeholder="'Dustin Hoffman'"></p>
+    <p><input type="submit" value="Найти"></p>
+</form>
+
+    {% if result %}
+        <p>С актёрами <strong>{{ actors[0] }}</strong> и <strong>{{ actors[1] }}</strong> снимались:</p>
+        {% for res in result %}
+            <a>{{res}}</a><br>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
